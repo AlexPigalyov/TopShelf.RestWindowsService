@@ -6,10 +6,9 @@ using System.Web.Http;
 
 namespace TopShelf.RestWindowsService
 {
-    [Route("api/{controller}")]
     public class RestController : ApiController
     {
-        [Route("ping")]
+        [HttpGet]
         public IHttpActionResult Ping()
         {
             try
@@ -21,8 +20,7 @@ namespace TopShelf.RestWindowsService
                 return BadRequest(exc.Message);
             }
         }
-
-        [Route("mirror")]
+        [HttpGet]
         public IHttpActionResult Mirror(string jsonString)
         {
             try
