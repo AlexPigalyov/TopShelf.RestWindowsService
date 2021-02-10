@@ -18,6 +18,7 @@ namespace TopShelf.RestWindowsService
                 "DefaultApi",
                 "api/{controller}/{action}",
                 new { id = RouteParameter.Optional });
+
             return config;
         }
     }

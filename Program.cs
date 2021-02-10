@@ -18,8 +18,9 @@ namespace TopShelf.RestWindowsService
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
 
-                x.SetServiceName("RestWindowsService");
-                x.SetDisplayName("RestWindowsService");
+                x.SetDescription(System.Configuration.ConfigurationManager.AppSettings["Service.Description"]);
+                x.SetDisplayName(System.Configuration.ConfigurationManager.AppSettings["Service.DisplayName"]);
+                x.SetServiceName(System.Configuration.ConfigurationManager.AppSettings["Service.Name"]);
             });
         }
     }
