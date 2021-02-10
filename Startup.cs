@@ -1,5 +1,6 @@
 ﻿using Owin;
 using System.Web.Http;
+using System.Net.Http.Headers;
 
 namespace TopShelf.RestWindowsService
 {
@@ -18,6 +19,8 @@ namespace TopShelf.RestWindowsService
                 "DefaultApi",
                 "api/{controller}/{action}",
                 new { id = RouteParameter.Optional });
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             return config;
         }
