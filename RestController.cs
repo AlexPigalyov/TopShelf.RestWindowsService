@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Schema;
 using System;
 using System.Web.Http;
 
@@ -14,8 +13,8 @@ namespace TopShelf.RestWindowsService
             try
             {
                 return Ok(JsonConvert.SerializeObject(DateTime.Now));
-            } 
-            catch(Exception exc)
+            }
+            catch (Exception exc)
             {
                 return BadRequest(exc.Message);
             }
@@ -28,9 +27,9 @@ namespace TopShelf.RestWindowsService
                 //If the json string is converted, 
                 //then the json string is already
                 //json and we shouldn't convert it again
-                JObject.Parse(jsonString);
+                var result = JObject.Parse(jsonString);
 
-                return Ok(jsonString);
+                return Ok(result);
             }
             catch
             {
